@@ -8,7 +8,7 @@ import org.apache.zookeeper.data.Stat;
 
 import java.util.concurrent.CountDownLatch;
 
-public class WactherCallBack implements Watcher, AsyncCallback.StatCallback, AsyncCallback.DataCallback{
+public class WatcherCallBack implements Watcher, AsyncCallback.StatCallback, AsyncCallback.DataCallback{
 
     ZooKeeper zk;
 

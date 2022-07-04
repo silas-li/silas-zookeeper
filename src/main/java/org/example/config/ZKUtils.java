@@ -9,7 +9,8 @@ public class ZKUtils {
 
     private static ZooKeeper zk;
 
-    private static String address = "10.255.72.158:2181,10.255.72.211:2181,10.255.72.212:2181,10.255.72.213:2181/testConf";
+    //private static String address = "10.255.72.158:2181,10.255.72.211:2181,10.255.72.212:2181,10.255.72.213:2181/testConf";
+    private static String address = "10.255.72.158:2181,10.255.72.211:2181,10.255.72.212:2181,10.255.72.213:2181/testLock";
 
     private static DefaultWatcher watcher = new DefaultWatcher();
 
@@ -17,7 +18,7 @@ public class ZKUtils {
 
     public static ZooKeeper getZk(){
         try {
-            zk = new ZooKeeper(address,1000,watcher);
+            zk = new ZooKeeper(address,2000,watcher);
             watcher.setCc(countDownLatch);
             countDownLatch.await();
         } catch (IOException | InterruptedException e){

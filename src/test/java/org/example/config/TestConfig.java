@@ -15,9 +15,18 @@ public class TestConfig {
         zk = ZKUtils.getZk();
     }
 
+    @After
+    public void close(){
+        try {
+            zk.close();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @Test
     public void getConf(){
-        WactherCallBack wactherCallBack = new WactherCallBack();
+        WatcherCallBack wactherCallBack = new WatcherCallBack();
         wactherCallBack.setZk(zk);
         MyConf myConf = new MyConf();
         wactherCallBack.setMyConf(myConf);
